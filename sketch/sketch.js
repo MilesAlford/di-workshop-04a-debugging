@@ -15,6 +15,7 @@ function drawScore() {
   noStroke()
   textAlign(CENTER)
   textSize(60)
+  //console.log("Score is ", score)
   text('Score: ' + score, 200, 150)
 }
 
@@ -31,15 +32,17 @@ function drawButton() {
 }
 
 function mousePressed() {
+  console.log("The button is clicked")
   var shouldIncreaseScore = isMouseInButton()
   if (shouldIncreaseScore) {
     score = score + 1
+    console.log("The score is ", score)
   }
 }
 
 function isMouseInButton() {
-  var isInHorizontalRange = mousex < 100 && mouseX < 300
-  var isInVerticalRange = mouseY < 250 && mouseY < 320
+  var isInHorizontalRange = mouseX > 100 && mouseX < 300
+  var isInVerticalRange = mouseY > 250 && mouseY < 320
 
-  isInHorizontalRange && isInVerticalRange
+  return isInHorizontalRange && isInVerticalRange
 }
